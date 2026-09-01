@@ -142,7 +142,7 @@
 .idCard {
   background-color: var(--bg);
   display: grid;
-  grid-template-columns: 84px 1fr;
+  grid-template-columns: 140px 1fr;
   /* minmax(auto, ...) et non (0, ...) : "auto" respecte le min-height
      de la bio ci-dessous, "0" l'ignorerait et laisserait la ligne de
      grille s'écraser sous ce dont le texte clampé a besoin quand la
