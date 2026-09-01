@@ -325,12 +325,12 @@
   .img4 { width: 88px;  top: 31vh; right: 1%; }
   .contactAbove { top: 2vh; right: 2%; }
 
-  .content { max-width: 110%; }
+  .content { max-width: 72%; }
   .idGrid  { grid-template-columns: repeat(2, 1fr); }
 
   /* 2 colonnes pour 3 cartes = 2 lignes : on resserre encore la carte */
   .idCard  {
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 72px 1fr;
     padding: 0.7rem 0.85rem;
     column-gap: 0.75rem;
     row-gap: 0.3rem;
