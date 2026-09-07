@@ -436,7 +436,7 @@
   /* Style identique au h1 précédent */
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(6rem, 7vw, 7rem);
+  font-size: clamp(6rem, 9vw, 9rem);
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--ink);
