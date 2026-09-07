@@ -41,7 +41,7 @@
 .thumb:hover { opacity: 1; filter: grayscale(0%) brightness(1); }
 
 .img1 { width: 150px; top: 4vh;  left: 15%;    transform: rotate(-6deg); }
-.img2 { width: 200px; top: 3vh;  right: 20%; transform: rotate(5deg); margin-top: 6rem; }
+.img2 { width: 230px; top: 3vh;  right: 20%; transform: rotate(5deg); margin-top: 6rem; }
 .img3 { width: 120px; top: 36vh; left: 1.5%;  transform: rotate(8deg);  }
 .img4 { width: 110px; top: 33vh; right: 1.5%; transform: rotate(-7deg); }
 
