@@ -22,8 +22,8 @@ const identities = [
   {
     id: 3,
     photo:    '/images/Esquisse-1_dessin_ProjetZatrap.jpg',
-    photoAlt: <strong>'ZATRAP'</strong>,
-    name:     'ZATRAP',
+    photoAlt: 'ZATRAP',
+    name:     <strong>'ZATRAP'</strong>,
     role:     `ZATRAP.FR`,
     detail1:  'Revue Formes & Silences',
     detail2:  'Berlin — Paris',
