@@ -36,7 +36,15 @@ export default function HeroAccordion() {
       >
         <div className={styles.accordionInner}>
           <p className={styles.accordionText}>
-            {`Née à Lyon en 1984, Claire Avis développe depuis 2008 une pratique transversale mêlant photographie argentique, installation et peinture à l'huile. Formée à l'ENSBA de Lyon puis en résidence à la Villa Médicis en 2014, son travail interroge la notion de trace et de mémoire à travers des matières sensibles — papier baryté, toile encaustique, résine. Ses œuvres ont été présentées dans une quinzaine d'institutions européennes et font partie de plusieurs collections publiques et privées.`}
+            {`Artiste plasticien et visuel, Régis Granville ne façonne pas de simples objets, il crée des expériences.
+
+Sa démarche explore le dialogue intime entre matière et lumière, tissant des ponts entre mémoire et spiritualité. Entre peinture abstraite, sculpture et verre en fusion, il donne une forme tangible à notre lien au monde. Au-delà de la toile, il libère l'art pour concevoir des installations immersives où le spectateur devient acteur.
+C’est le cœur de son projet magistral, Zatrap’, inspiré par la tradition martiniquaise du piège à crabes de terre et le mythique crabe violoniste. Ce dispositif monumental transcende le folklore pour devenir une odyssée anthropologique universelle. L'homme moderne, prisonnier de ses certitudes, y est invité à se laisser piéger pour mieux se libérer.
+
+Entre l'arche minérale et l'antre mémoriel, le visiteur traverse un rite sensoriel total, rythmé par Eugène Mona et Verdi. Véritable électrochoc humaniste, Zatrap’ réveille les cinq sens et brise l'indifférence de notre époque hyper-connectée. Plus qu'une œuvre, c'est une offrande organique et vivante qui nous murmure qu'il est encore temps de se reconnecter à l'essentiel.
+
+À vous, désormais, de la faire naître
+.`}
           </p>
         </div>
       </div>
