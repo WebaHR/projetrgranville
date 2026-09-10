@@ -23,7 +23,7 @@ const identities = [
     id: 3,
     photo:    '/images/Esquisse-1_dessin_ProjetZatrap.jpg',
     photoAlt: 'ZATRAP',
-    name:     <p style={{fontWeight: "700",textTransform: "uppercase"}}>'ZATRAP'</p>,
+    name:     <p style={{fontWeight: "700",textTransform: "uppercase",font-size:"30px"}}>'ZATRAP'</p>,
     role:     `ZATRAP.FR`,
     detail1:  'Revue Formes & Silences',
     detail2:  'Berlin — Paris',
