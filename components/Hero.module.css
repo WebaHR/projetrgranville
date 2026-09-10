@@ -504,3 +504,30 @@
   text-align: left;
   padding-top: 1.25rem;
 }
+
+/* Accordéon ouvert : le hero grandit avec son contenu au lieu de le
+   rogner. Sans ça, .inner reste bloqué à 66.6667vh avec overflow:hidden
+   et le contenu centré déborde des deux côtés — le titre est rogné en
+   haut, le texte de l'accordéon est rogné en bas (juste avant .idBlock,
+   qui a un fond opaque et donne l'impression que le texte disparaît
+   "derrière" les cartes). */
+.hero:has(.accordionPanelOpen) {
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.hero:has(.accordionPanelOpen) .inner {
+  flex: none;
+  overflow: visible;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+.hero:has(.accordionPanelOpen) .idBlock {
+  flex: none;
+}
+
+.hero:has(.accordionPanelOpen) .idGrid {
+  height: auto;
+}
