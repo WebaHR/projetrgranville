@@ -25,7 +25,7 @@ const identities = [
     photoAlt: '<p style={{ 
   fontWeight: "700",
   textTransform: "uppercase"
-}}>ZATRAP'</p>,
+}}>'ZATRAP'</p>,
     name:     'ZATRAP',
     role:     `ZATRAP.FR`,
     detail1:  'Revue Formes & Silences',
