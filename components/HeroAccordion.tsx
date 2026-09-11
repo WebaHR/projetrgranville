@@ -39,12 +39,8 @@ export default function HeroAccordion() {
             {`Artiste plasticien et visuel, Régis Granville ne façonne pas de simples objets, il crée des expériences.
 
 Sa démarche explore le dialogue intime entre matière et lumière, tissant des ponts entre mémoire et spiritualité. Entre peinture abstraite, sculpture et verre en fusion, il donne une forme tangible à notre lien au monde. Au-delà de la toile, il libère l'art pour concevoir des installations immersives où le spectateur devient acteur.
-C’est le cœur de son projet magistral, Zatrap’, inspiré par la tradition martiniquaise du piège à crabes de terre et le mythique crabe violoniste. Ce dispositif monumental transcende le folklore pour devenir une odyssée anthropologique universelle. L'homme moderne, prisonnier de ses certitudes, y est invité à se laisser piéger pour mieux se libérer.
 
-Entre l'arche minérale et l'antre mémoriel, le visiteur traverse un rite sensoriel total, rythmé par Eugène Mona et Verdi. Véritable électrochoc humaniste, Zatrap’ réveille les cinq sens et brise l'indifférence de notre époque hyper-connectée. Plus qu'une œuvre, c'est une offrande organique et vivante qui nous murmure qu'il est encore temps de se reconnecter à l'essentiel.
-
-`}<em>À vous, désormais, de la faire naître</em>{`
-.`}
+`}<em>À vous… désormais, de la faire naître.</em>
           </p>
         </div>
       </div>
