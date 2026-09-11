@@ -43,7 +43,7 @@ C’est le cœur de son projet magistral, Zatrap’, inspiré par la tradition m
 
 Entre l'arche minérale et l'antre mémoriel, le visiteur traverse un rite sensoriel total, rythmé par Eugène Mona et Verdi. Véritable électrochoc humaniste, Zatrap’ réveille les cinq sens et brise l'indifférence de notre époque hyper-connectée. Plus qu'une œuvre, c'est une offrande organique et vivante qui nous murmure qu'il est encore temps de se reconnecter à l'essentiel.
 
-À vous, désormais, de la faire naître
+`}<em>À vous, désormais, de la faire naître</em>{`
 .`}
           </p>
         </div>
