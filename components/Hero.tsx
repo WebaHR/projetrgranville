@@ -70,7 +70,7 @@ export default function Hero() {
         <div className={styles.content}>
           <HeroAccordion />
           <p className={styles.tagline}>
-            Artiste plasticien et visuel (visual artist)
+            Visual Artist &amp; Plasticien
           </p>
         </div>
       </div>
