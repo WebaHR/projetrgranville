@@ -42,6 +42,16 @@ Sa démarche explore le dialogue intime entre matière et lumière, tissant des 
 
 `}<em>À vous… désormais, de la faire naître.</em>
           </p>
+
+          <hr className={styles.accordionDivider} />
+
+          <p className={styles.accordionText}>
+            {`Visual artist Régis Granville does not merely fashion simple objects; he creates experiences.
+
+His artistic approach explores the intimate dialogue between matter and light, weaving bridges between memory and spirituality. Spanning abstract painting, sculpture, and fused glass, he gives tangible form to our connection with the world. Beyond the canvas, he liberates art to design immersive installations where the viewer becomes a participant.
+
+`}<em>Now… it is up to you to bring it to life.</em>
+          </p>
         </div>
       </div>
 

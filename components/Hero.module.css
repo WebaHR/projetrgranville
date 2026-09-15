@@ -505,6 +505,12 @@
   padding-top: 1.25rem;
 }
 
+.accordionDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0 0;
+}
+
 /* Accordéon ouvert : le hero grandit avec son contenu au lieu de le
    rogner. Sans ça, .inner reste bloqué à 66.6667vh avec overflow:hidden
    et le contenu centré déborde des deux côtés — le titre est rogné en
