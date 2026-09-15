@@ -296,11 +296,11 @@
   display: block;
   margin: 0 auto 1.75rem;
   width: fit-content;
-  color: var(--border);
+  color: var(--muted);
   animation: bob 2.6s ease-in-out infinite;
   transition: color 0.2s ease;
 }
-.scrollArrow:hover { color: var(--muted); }
+.scrollArrow:hover { color: var(--accent); }
 .scrollArrow:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 6px;

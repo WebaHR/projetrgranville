@@ -53,7 +53,7 @@ Sa démarche explore le dialogue intime entre matière et lumière, tissant des 
         aria-controls="hero-text-panel"
         aria-label={open ? 'Fermer la présentation' : 'Lire la présentation'}
       >
-        <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="30" height="18" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1L10 10L19 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </button>
