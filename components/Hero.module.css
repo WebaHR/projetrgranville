@@ -93,10 +93,17 @@
   margin: 0 auto;
 }
 
-/* Décalage vers la gauche uniquement sur écran PC */
+/* Décalage vers la gauche uniquement sur écran PC, pour que le h1
+   n'empiète pas sur la miniature du haut (img2) */
 @media (min-width: 901px) {
   .content {
     margin-right: 350px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {
+    margin-right: 540px;
   }
 }
 
