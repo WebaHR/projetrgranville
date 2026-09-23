@@ -93,6 +93,13 @@
   margin: 0 auto;
 }
 
+/* Décalage vers la gauche uniquement sur écran PC */
+@media (min-width: 901px) {
+  .content {
+    margin-right: 350px;
+  }
+}
+
 .name {
   font-family: var(--font-display);
   font-weight: 300;
