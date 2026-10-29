@@ -48,20 +48,22 @@ Bertrand CARUGE`}
     href:     '#',
     bio: (
       <>
-        <strong>L'Empreinte du Vivant : Matières et Médiums</strong>
+        <strong>Le Voyage est un Art - L'Art est un Voyage</strong>
         {`
-Régis Granville, Artiste visuel et plasticien, tisse son œuvre à la croisée de la mémoire du geste et de l'intuition, guidé par un dialogue sensible avec la matière.
+Rencontrer Régis Granville aujourd'hui, c'est découvrir petit à petit, que l'être plutôt silencieux et discret tel qu'il se présente n'est qu'une des multiples facettes de l'être dont le cheminement est riche en dédales et sinuosités.
 
-Sa démarche artistique se construit comme une conversation profonde entre l'opacité du monde et la lumière. Son œuvre puise ses racines dans des faits réels et des histoires vécues, cherchant à donner une forme tangible à ce qui nous lie à notre environnement. Cette quête, à la fois ancrée dans le réel et imprégnée d'une dimension spirituelle, explore une pluralité de médiums : de la peinture abstraite — utilisant l'acrylique, l'huile, l'encre et des matériaux mixtes — à la photographie, en passant par le verre en fusion (fusing).
-Bertrand CARUGE
+Sous ces méandres se dessine néanmoins une cohérence qui apparaît dans le rôle et la place qu'occupe le voyage, au sens très large du terme, dans la vie et l'œuvre de cet artiste. Ce point de vue choisi nous servira de guide tout au long de cette étude du parcours de Régis et de l'élaboration de son œuvre.
+Denise ZAYAN
+
 -----------------------------------------------------------------------------------------------------
 `}
-        <strong>The Mark of the Living: Materials and Mediums</strong>
+        <strong>Travel is an Art - Art is a Journey</strong>
         {`
-Régis Granville, a Visual artist, weaves his work at the crossroads of memory of gesture and intuition, guided by a sensitive dialogue with material.
+To meet Régis Granville today is to gradually uncover that the quiet, unassuming figure he presents to the world is merely one facet of a man whose path has been rich in twists and turns.
 
-His artistic approach is built as a profound conversation between the world's opacity and light. His work stems from real-life events and lived experiences, seeking to give tangible form to what connects us to our environment. This quest, both grounded in reality and imbued with a spiritual dimension, explores a plurality of mediums: from abstract painting—using acrylic, oil, ink, and mixed media—to photography, as well as fused glass (fusing).
-Bertrand CARUGE`}
+Beneath these meanderings, a coherence nevertheless emerges in the role and place that travel, in the broadest sense of the term, occupies in the life and work of this artist. This chosen point of view will serve as our guide throughout this study of Régis's journey and the elaboration of his work.
+
+Denise ZAYAN`}
       </>
     ),
   },
