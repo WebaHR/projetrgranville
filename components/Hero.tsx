@@ -78,22 +78,18 @@ Denise ZAYAN`}
     href:     'https://dmum.art/',
     bio: (
       <>
-        <strong>Le Voyage est un Art - L'Art est un Voyage</strong>
+        <strong>La voie…</strong>
         {`
-Rencontrer Régis Granville aujourd'hui, c'est découvrir petit à petit, que l'être plutôt silencieux et discret tel qu'il se présente n'est qu'une des multiples facettes de l'être dont le cheminement est riche en dédales et sinuosités.
+Pour vivre une vie dans laquelle nous sommes inspirés et inspirons les autres, nos cœurs doivent êtres vivants. Ils doivent êtres emplis de passions et d'enthousiasmes.
+Pour accomplir cela, nous avons besoins de courage de vivre en étant vrais avec nous-mêmes. rG
 
-Sous ces méandres se dessine néanmoins une cohérence qui apparaît dans le rôle et la place qu'occupe le voyage, au sens très large du terme, dans la vie et l'œuvre de cet artiste. Ce point de vue choisi nous servira de guide tout au long de cette étude du parcours de Régis et de l'élaboration de son œuvre.
-Denise ZAYAN
 
 -----------------------------------------------------------------------------------------------------
 `}
-        <strong>Travel is an Art - Art is a Journey</strong>
+        <strong>The way…</strong>
         {`
-To meet Régis Granville today is to gradually uncover that the quiet, unassuming figure he presents to the world is merely one facet of a man whose path has been rich in twists and turns.
-
-Beneath these meanderings, a coherence nevertheless emerges in the role and place that travel, in the broadest sense of the term, occupies in the life and work of this artist. This chosen point of view will serve as our guide throughout this study of Régis's journey and the elaboration of his work.
-
-Denise ZAYAN`}
+To live a life in which we are both inspired others, our hearts must be alive. They must also be filled with passion and enthusiasm.
+To accomplish this, we need the courage to be true to ourselves in our lives. rG`}
       </>
     ),
   },
