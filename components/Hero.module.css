@@ -604,10 +604,27 @@
    .idBioToggle (présent dès que le bouton existe) et non .idBioOpen
    seul : sinon la hauteur ajoutée par le bouton fermé dépasse le cadre
    fixe et pousse le reste de la carte (détails, lien) hors champ. */
+/* Pas de min-height: 100vh ici (contrairement à l'accordéon principal,
+   ouvert ponctuellement) : avec le nouveau contenu, le bouton "Lire la
+   suite" est désormais présent en permanence sur les 3 cartes dès le
+   chargement — forcer 100vh laisserait un grand vide avant le footer
+   à chaque visite au lieu d'un cas exceptionnel. */
 .hero:has(.idBioToggle) {
   height: auto;
-  min-height: 100vh;
   overflow: visible;
+}
+
+/* .inner garde flex: 0 0 66.6667% par défaut : un pourcentage de
+   flex-basis exige une hauteur définie sur le conteneur, or .hero
+   passe ici en hauteur indéfinie (auto + min-height). Sans ce reset,
+   .inner se résout de façon imprévisible et .idBlock peut remonter et
+   chevaucher le titre / la tagline (cartes et photos qui débordent
+   par-dessus .inner). */
+.hero:has(.idBioToggle) .inner {
+  flex: none;
+  overflow: visible;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
 }
 
 .hero:has(.idBioToggle) .idBlock {
