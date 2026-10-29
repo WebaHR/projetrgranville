@@ -592,25 +592,29 @@
   height: auto;
 }
 
-/* Bio de carte développée : la grille et la carte doivent pouvoir
-   grandir avec le texte complet au lieu de le couper (même technique
-   que l'accordéon principal ci-dessus) */
-.hero:has(.idBioOpen) {
+/* Bouton "Lire la suite" présent (bio tronquée, ouverte ou non) : la
+   grille et la carte doivent pouvoir grandir pour lui faire de la place
+   au lieu que .hero (height: 100vh; overflow: hidden) ne le coupe —
+   même technique que l'accordéon principal ci-dessus. Déclenché sur
+   .idBioToggle (présent dès que le bouton existe) et non .idBioOpen
+   seul : sinon la hauteur ajoutée par le bouton fermé dépasse le cadre
+   fixe et pousse le reste de la carte (détails, lien) hors champ. */
+.hero:has(.idBioToggle) {
   height: auto;
   min-height: 100vh;
   overflow: visible;
 }
 
-.hero:has(.idBioOpen) .idBlock {
+.hero:has(.idBioToggle) .idBlock {
   flex: none;
 }
 
-.hero:has(.idBioOpen) .idGrid {
+.hero:has(.idBioToggle) .idGrid {
   height: auto;
   grid-auto-rows: auto;
 }
 
-.hero:has(.idBioOpen) .idCard {
+.hero:has(.idBioToggle) .idCard {
   height: auto;
 }
 
