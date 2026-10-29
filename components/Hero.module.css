@@ -227,10 +227,17 @@
 }
 
 /* Bio — pleine largeur, tronquée pour tenir dans la carte */
-.idBio {
+.idBioWrap {
   grid-column: 1 / -1;
   grid-row: 2;
   align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-height: 0;
+}
+
+.idBio {
   font-family: var(--font-body);
   font-size: 0.78rem;
   line-height: 1.5;
@@ -242,6 +249,37 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
   min-height: 4.5em;
+  white-space: pre-line;
+}
+
+/* Bio développée : le clamp tombe, le texte complet s'affiche */
+.idBioOpen {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
+
+.idBioToggle {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--accent);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.idBioToggle:hover { color: var(--ink); }
+.idBioToggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
 }
 
 /* Détails — pleine largeur */
@@ -551,6 +589,28 @@
 }
 
 .hero:has(.accordionPanelOpen) .idGrid {
+  height: auto;
+}
+
+/* Bio de carte développée : la grille et la carte doivent pouvoir
+   grandir avec le texte complet au lieu de le couper (même technique
+   que l'accordéon principal ci-dessus) */
+.hero:has(.idBioOpen) {
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.hero:has(.idBioOpen) .idBlock {
+  flex: none;
+}
+
+.hero:has(.idBioOpen) .idGrid {
+  height: auto;
+  grid-auto-rows: auto;
+}
+
+.hero:has(.idBioOpen) .idCard {
   height: auto;
 }
 
