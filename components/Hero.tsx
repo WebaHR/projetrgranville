@@ -43,8 +43,8 @@ Bertrand CARUGE`}
     photoAlt: 'ZATRAP',
     name:     'ZATRAP',
     role:     `ZATRAP.FR`,
-    detail1:  'Revue Formes & Silences',
-    detail2:  'Berlin — Paris',
+    detail1:  '',
+    detail2:  '',
     href:     '#',
     bio: (
       <>
