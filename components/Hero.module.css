@@ -252,6 +252,11 @@
   white-space: pre-line;
 }
 
+.idBio strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
 /* Bio développée : le clamp tombe, le texte complet s'affiche */
 .idBioOpen {
   display: block;

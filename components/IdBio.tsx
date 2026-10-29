@@ -1,9 +1,9 @@
 'use client'
 
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import styles from './Hero.module.css'
 
-export default function IdBio({ text }: { text: string }) {
+export default function IdBio({ text }: { text: ReactNode }) {
   const ref = useRef<HTMLParagraphElement>(null)
   const [open, setOpen] = useState(false)
   const [truncated, setTruncated] = useState(false)

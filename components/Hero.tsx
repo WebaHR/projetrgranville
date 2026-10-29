@@ -18,18 +18,24 @@ const identities = [
     detail1:  '',
     detail2:  '',
     href:     'https://rgranville.com/',
-    bio:      `L'Empreinte du Vivant : Matières et Médiums
+    bio: (
+      <>
+        <strong>L'Empreinte du Vivant : Matières et Médiums</strong>
+        {`
 Régis Granville, Artiste visuel et plasticien, tisse son œuvre à la croisée de la mémoire du geste et de l'intuition, guidé par un dialogue sensible avec la matière.
 
 Sa démarche artistique se construit comme une conversation profonde entre l'opacité du monde et la lumière. Son œuvre puise ses racines dans des faits réels et des histoires vécues, cherchant à donner une forme tangible à ce qui nous lie à notre environnement. Cette quête, à la fois ancrée dans le réel et imprégnée d'une dimension spirituelle, explore une pluralité de médiums : de la peinture abstraite — utilisant l'acrylique, l'huile, l'encre et des matériaux mixtes — à la photographie, en passant par le verre en fusion (fusing).
 Bertrand CARUGE
-
-The Mark of the Living: Materials and Mediums
-
+-----------------------------------------------------------------------------------------------------
+`}
+        <strong>The Mark of the Living: Materials and Mediums</strong>
+        {`
 Régis Granville, a Visual artist, weaves his work at the crossroads of memory of gesture and intuition, guided by a sensitive dialogue with material.
 
 His artistic approach is built as a profound conversation between the world's opacity and light. His work stems from real-life events and lived experiences, seeking to give tangible form to what connects us to our environment. This quest, both grounded in reality and imbued with a spiritual dimension, explores a plurality of mediums: from abstract painting—using acrylic, oil, ink, and mixed media—to photography, as well as fused glass (fusing).
-Bertrand CARUGE`,
+Bertrand CARUGE`}
+      </>
+    ),
   },
   {
     id: 3,
