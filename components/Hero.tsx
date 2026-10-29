@@ -19,7 +19,6 @@ const identities = [
     detail2:  '',
     href:     'https://rgranville.com/',
     bio:      `L'Empreinte du Vivant : Matières et Médiums
-
 Régis Granville, Artiste visuel et plasticien, tisse son œuvre à la croisée de la mémoire du geste et de l'intuition, guidé par un dialogue sensible avec la matière.
 
 Sa démarche artistique se construit comme une conversation profonde entre l'opacité du monde et la lumière. Son œuvre puise ses racines dans des faits réels et des histoires vécues, cherchant à donner une forme tangible à ce qui nous lie à notre environnement. Cette quête, à la fois ancrée dans le réel et imprégnée d'une dimension spirituelle, explore une pluralité de médiums : de la peinture abstraite — utilisant l'acrylique, l'huile, l'encre et des matériaux mixtes — à la photographie, en passant par le verre en fusion (fusing).
