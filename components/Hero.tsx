@@ -39,7 +39,7 @@ Bertrand CARUGE`}
   },
   {
     id: 3,
-    photo:    '/images/Esquisse-1_dessin_ProjetZatrap.jpg',
+    photo:    '/images/side-photo.webp',
     photoAlt: 'ZATRAP',
     name:     'ZATRAP',
     role:     `ZATRAP.FR`,
