@@ -48,7 +48,11 @@
 /* ── Lien Contact au-dessus de la miniature img2 ── */
 .contactAbove {
   position: absolute;
-  z-index: 2;
+  /* z-index supérieur à .idBlock (2) : à égalité, l'ordre DOM aurait
+     fait passer .idBlock au-dessus (il vient après dans le markup), et
+     ses photos qui débordent (translateY sur .idPhotoWrap) pouvaient
+     alors intercepter les clics sur ce lien. */
+  z-index: 10;
   top: 3vh;
   right: 15%;
   font-family: var(--font-body);
