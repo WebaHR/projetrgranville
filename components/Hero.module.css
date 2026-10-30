@@ -624,7 +624,7 @@
   flex: none;
   overflow: visible;
   padding-top: 4rem;
-  padding-bottom: 3rem;
+  padding-bottom: 12rem;
 }
 
 .hero:has(.idBioToggle) .idBlock {
