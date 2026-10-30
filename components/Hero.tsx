@@ -12,6 +12,7 @@ const identities = [
   {
     id: 1,
     photo:    '/images/phtos-menu-livre2.jpg',
+    photoCredit: 'Crédit photo : Samuel Cammarano',
     photoAlt: 'Artiste Plasticien Visual artist',
     name:     'Artiste Plasticien / Visual artist',
     role:     'RGRANVILLE.COM',
@@ -40,6 +41,7 @@ Bertrand CARUGE`}
   {
     id: 3,
     photo:    '/images/side-photo.webp',
+    photoCredit: '',
     photoAlt: 'ZATRAP',
     name:     'ZATRAP',
     role:     `ZATRAP.FR`,
@@ -70,6 +72,7 @@ Denise ZAYAN`}
   {
     id: 2,
     photo:    '/images/desert1-dmum.art_.jpg',
+    photoCredit: '',
     photoAlt: 'Mise en scène artistique',
     name:     'Mise en scène artistique',
     role:     'DMUM.ART',
@@ -145,6 +148,9 @@ export default function Hero() {
                   loading="lazy"
                   decoding="async"
                 />
+                {person.photoCredit && (
+                  <span className={styles.idPhotoCredit}>{person.photoCredit}</span>
+                )}
               </div>
 
               <div className={styles.idHeader}>

@@ -199,6 +199,23 @@
   transform: scale(1.04);
 }
 
+/* Crédit photo — superposé en bas de l'image plutôt qu'en flux, pour
+   ne pas modifier la hauteur de .idPhotoWrap (recalibrerait le
+   translateY(-50%) qui fait "peeker" la photo au-dessus de la carte) */
+.idPhotoCredit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.3rem 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+  text-align: center;
+}
+
 /* Nom + rôle — haut droite */
 .idHeader {
   grid-column: 2;
