@@ -41,7 +41,7 @@ Bertrand CARUGE`}
   {
     id: 3,
     photo:    '/images/side-photo.webp',
-    photoCredit: '',
+    photoCredit: 'Crédit photo : JCP2026',
     photoAlt: 'ZATRAP',
     name:     'ZATRAP',
     role:     `ZATRAP.FR`,
