@@ -173,16 +173,24 @@
 }
 .idCard:hover { background-color: var(--card-bg); }
 
+/* Emplacement grille de la photo — ne porte ni le transform ni
+   l'overflow:hidden (contrairement à .idPhotoWrap ci-dessous), pour
+   que .idPhotoCredit puisse être ancré juste sous l'image sans être
+   rogné ni recalculer la hauteur prise en compte par la grille. */
+.idPhotoSlot {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+}
+
 /* Photo 1:1 — haut gauche, agrandie et ressortant à mi-hauteur au-dessus de la carte */
 .idPhotoWrap {
   position: relative;
   z-index: 3;
-  grid-column: 1;
-  grid-row: 1;
   overflow: hidden;
   outline: 1px solid var(--border);
   outline-offset: -1px;
-  align-self: start;
   transform: translateY(-50%);
 }
 
@@ -199,20 +207,21 @@
   transform: scale(1.04);
 }
 
-/* Crédit photo — superposé en bas de l'image plutôt qu'en flux, pour
-   ne pas modifier la hauteur de .idPhotoWrap (recalibrerait le
-   translateY(-50%) qui fait "peeker" la photo au-dessus de la carte) */
+/* Crédit photo — ancré à mi-hauteur de .idPhotoSlot : comme
+   .idPhotoWrap est remonté de 50% de sa propre hauteur (translateY),
+   son bord visuel inférieur correspond exactement à 50% de la hauteur
+   de .idPhotoSlot (non transformé). Position absolue : ne modifie ni
+   la hauteur de .idPhotoSlot ni la position des autres éléments. */
 .idPhotoCredit {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  padding: 0.3rem 0.4rem;
+  top: 50%;
+  margin-top: 0.35rem;
   font-family: var(--font-body);
   font-size: 0.5rem;
-  letter-spacing: 0.02em;
-  color: #fff;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+  letter-spacing: 0.04em;
+  color: var(--muted);
   text-align: center;
 }
 
@@ -421,6 +430,9 @@
   .idDetail,
   .idSep,
   .idLink    { font-size: 0.56rem; }
+  /* Colonne photo trop étroite pour le crédit sans qu'il ne passe sur
+     plusieurs lignes et chevauche le titre de la bio en dessous */
+  .idPhotoCredit { display: none; }
 
   /* 3 cartes sur 2 colonnes laisse une case vide : la dernière carte
      occupe toute la largeur pour combler la ligne incomplète */

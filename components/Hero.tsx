@@ -139,15 +139,17 @@ export default function Hero() {
               className={`${styles.idCard} ${person.id === 3 ? styles.idCardMobileFirst : ''}`}
             >
 
-              <div className={styles.idPhotoWrap}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={person.photo || undefined}
-                  alt={person.photoAlt}
-                  className={styles.idPhoto}
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div className={styles.idPhotoSlot}>
+                <div className={styles.idPhotoWrap}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={person.photo || undefined}
+                    alt={person.photoAlt}
+                    className={styles.idPhoto}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
                 {person.photoCredit && (
                   <span className={styles.idPhotoCredit}>{person.photoCredit}</span>
                 )}
