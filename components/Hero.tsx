@@ -72,7 +72,7 @@ Denise ZAYAN`}
   {
     id: 2,
     photo:    '/images/desert1-dmum.art_.jpg',
-    photoCredit: '',
+    photoCredit: 'Crédit photo : Kira VYGRIVACH',
     photoAlt: 'Mise en scène artistique',
     name:     'Mise en scène artistique',
     role:     'DMUM.ART',
