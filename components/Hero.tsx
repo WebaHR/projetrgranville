@@ -54,20 +54,19 @@ It is a poetic exploration in which matter, shaped by instinct, becomes the mirr
       <>
         <strong>Le Voyage est un Art - L'Art est un Voyage</strong>
         {`
-Rencontrer Régis Granville aujourd'hui, c'est découvrir petit à petit, que l'être plutôt silencieux et discret tel qu'il se présente n'est qu'une des multiples facettes de l'être dont le cheminement est riche en dédales et sinuosités.
+À observer le déploiement d'un tel travail, on découvre petit à petit que l'apparence de sobriété et de discrétion n'est que la surface d'un cheminement créatif d'une grande richesse, fait de dédales et de sinuosités.
 
-Sous ces méandres se dessine néanmoins une cohérence qui apparaît dans le rôle et la place qu'occupe le voyage, au sens très large du terme, dans la vie et l'œuvre de cet artiste. Ce point de vue choisi nous servira de guide tout au long de cette étude du parcours de Régis et de l'élaboration de son œuvre.
-Denise ZAYAN
+Sous ces méandres se dessine une profonde cohérence : le rôle central qu'occupe le voyage, pris dans son sens le plus large, au cœur de cette quête et de cette production. La notion d'itinérance – physique, mentale ou matérielle – constitue le fil conducteur idéal pour appréhender les origines, l'évolution et l'élaboration même de cette création.
+Denise Zayan
 
 -----------------------------------------------------------------------------------------------------
 `}
         <strong>Travel is an Art - Art is a Journey</strong>
         {`
-To meet Régis Granville today is to gradually uncover that the quiet, unassuming figure he presents to the world is merely one facet of a man whose path has been rich in twists and turns.
+To observe the unfolding of such work is to gradually discover that its understated, discreet appearance is merely the surface of a deeply rich creative journey – one defined by mazes and meanders.
 
-Beneath these meanderings, a coherence nevertheless emerges in the role and place that travel, in the broadest sense of the term, occupies in the life and work of this artist. This chosen point of view will serve as our guide throughout this study of Régis's journey and the elaboration of his work.
-
-Denise ZAYAN`}
+Beneath these twists and turns lies a profound coherence: the central role of travel, taken in its broadest sense, at the very heart of this quest and creation. The notion of wanderlust – whether physical, mental, or material – serves as the ideal common thread for understanding the origins, evolution, and ultimate crafting of this work.
+Denise Zayan`}
       </>
     ),
   },
