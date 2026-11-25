@@ -5,10 +5,32 @@ import styles from './ContactModal.module.css'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string
+          callback: (token: string) => void
+          'error-callback'?: () => void
+          'expired-callback'?: () => void
+        }
+      ) => string
+      reset: (widgetId?: string) => void
+      remove: (widgetId?: string) => void
+    }
+  }
+}
+
 export default function ContactModal({ triggerClassName }: { triggerClassName: string }) {
   const [open, setOpen] = useState(false)
   const [status, setStatus] = useState<Status>('idle')
+  const [errorText, setErrorText] = useState('')
+  const [captchaToken, setCaptchaToken] = useState('')
   const firstInputRef = useRef<HTMLInputElement>(null)
+  const turnstileContainerRef = useRef<HTMLDivElement>(null)
+  const widgetIdRef = useRef<string | undefined>(undefined)
 
   useEffect(() => {
     if (!open) return
@@ -21,12 +43,63 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [open])
 
+  // Rend le widget Turnstile à l'ouverture — le script est chargé une
+  // fois globalement (layout.tsx) mais le conteneur n'existe que
+  // pendant que la pop-up est montée, donc on (re)rend à chaque fois.
+  useEffect(() => {
+    if (!open) return
+    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+    if (!siteKey) return
+
+    let cancelled = false
+
+    const renderWidget = () => {
+      if (cancelled || !window.turnstile || !turnstileContainerRef.current) return
+      widgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+        sitekey: siteKey,
+        callback: (token) => setCaptchaToken(token),
+        'error-callback': () => setCaptchaToken(''),
+        'expired-callback': () => setCaptchaToken(''),
+      })
+    }
+
+    if (window.turnstile) {
+      renderWidget()
+    } else {
+      const interval = setInterval(() => {
+        if (window.turnstile) {
+          clearInterval(interval)
+          renderWidget()
+        }
+      }, 100)
+      return () => {
+        cancelled = true
+        clearInterval(interval)
+      }
+    }
+
+    return () => {
+      cancelled = true
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current)
+        widgetIdRef.current = undefined
+      }
+      setCaptchaToken('')
+    }
+  }, [open])
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
 
     if (data.get('company')) return // honeypot
+
+    if (!captchaToken) {
+      setErrorText('Merci de valider le captcha.')
+      setStatus('error')
+      return
+    }
 
     setStatus('sending')
     try {
@@ -42,15 +115,29 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
           wantsBrochure: data.get('wantsBrochure') === 'on',
           message: data.get('message'),
           honeypot: data.get('company'),
+          captchaToken,
         }),
       })
 
-      if (!res.ok) throw new Error('request failed')
+      if (!res.ok) {
+        const body = await res.json().catch(() => null)
+        throw new Error(body?.error || 'request failed')
+      }
 
       setStatus('sent')
       form.reset()
-    } catch {
+    } catch (err) {
+      setErrorText(
+        err instanceof Error && err.message !== 'request failed'
+          ? err.message
+          : 'Une erreur est survenue. Réessayez ou écrivez à rg.granville@gmail.com.'
+      )
       setStatus('error')
+    } finally {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.reset(widgetIdRef.current)
+      }
+      setCaptchaToken('')
     }
   }
 
@@ -136,11 +223,9 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
                   <textarea name="message" rows={4} />
                 </label>
 
-                {status === 'error' && (
-                  <p className={styles.errorMsg}>
-                    Une erreur est survenue. Réessayez ou écrivez à rg.granville@gmail.com.
-                  </p>
-                )}
+                <div ref={turnstileContainerRef} className={styles.captcha} />
+
+                {status === 'error' && <p className={styles.errorMsg}>{errorText}</p>}
 
                 <button type="submit" className={styles.submit} disabled={status === 'sending'}>
                   {status === 'sending' ? 'Envoi…' : 'Envoyer'}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { EB_Garamond, Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const cormorant = EB_Garamond({
@@ -32,7 +33,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+      </body>
     </html>
   )
 }

@@ -3,6 +3,27 @@ import { Resend } from 'resend'
 
 const CONTACT_EMAIL = 'rg.granville@gmail.com'
 
+async function verifyTurnstile(token: string, ip: string | null): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY
+  if (!secret) return false
+
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret,
+        response: token,
+        ...(ip ? { remoteip: ip } : {}),
+      }),
+    })
+    const data = await res.json()
+    return data.success === true
+  } catch {
+    return false
+  }
+}
+
 export async function POST(request: Request) {
   let body: Record<string, unknown>
   try {
@@ -20,12 +41,22 @@ export async function POST(request: Request) {
     wantsBrochure,
     message,
     honeypot,
+    captchaToken,
   } = body as Record<string, string | boolean | undefined>
 
   // Honeypot : champ invisible que seuls les bots remplissent. On
   // répond succès sans rien envoyer, pour ne pas leur signaler le piège.
   if (honeypot) {
     return NextResponse.json({ ok: true })
+  }
+
+  if (typeof captchaToken !== 'string' || !captchaToken) {
+    return NextResponse.json({ error: 'Merci de valider le captcha.' }, { status: 400 })
+  }
+
+  const captchaOk = await verifyTurnstile(captchaToken, request.headers.get('x-forwarded-for'))
+  if (!captchaOk) {
+    return NextResponse.json({ error: 'Validation du captcha échouée, réessayez.' }, { status: 400 })
   }
 
   if (
