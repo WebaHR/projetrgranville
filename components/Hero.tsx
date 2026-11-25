@@ -12,7 +12,7 @@ const identities = [
   {
     id: 1,
     photo:    '/images/RegisGranvillevia%20%20KiraVigrivach.JPG',
-    photoCredit: 'Crédit photo : Samuel Cammarano',
+    photoCredit: 'Crédit photo : Kira Vigrivach',
     photoAlt: 'Artiste Plasticien Visual artist',
     name:     'Artiste visuel et plasticien',
     role:     'RGRANVILLE.COM',
