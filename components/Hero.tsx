@@ -43,7 +43,7 @@ It is a poetic exploration in which matter, shaped by instinct, becomes the mirr
   {
     id: 3,
     photo:    '/images/side-photo.webp',
-    photoCredit: 'Crédit photo : JCP2026',
+    photoCredit: '©JCP2026',
     photoAlt: 'ZATRAP',
     name:     'ZATRAP',
     role:     `ZATRAP.FR`,
@@ -73,7 +73,7 @@ Denise Zayan`}
   {
     id: 2,
     photo:    '/images/desert1-dmum.art_.jpg',
-    photoCredit: 'Crédit photo : Kira VYGRIVACH',
+    photoCredit: '©Kira VYGRIVACH',
     photoAlt: 'Mise en scène artistique',
     name:     'Mise en scène artistique',
     role:     'DMUM.ART',
