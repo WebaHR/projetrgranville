@@ -14,7 +14,7 @@ const identities = [
     photo:    '/images/phtos-menu-livre2.jpg',
     photoCredit: 'Crédit photo : Samuel Cammarano',
     photoAlt: 'Artiste Plasticien Visual artist',
-    name:     'Artiste Plasticien / Visual artist',
+    name:     'Artiste visuel et plasticien',
     role:     'RGRANVILLE.COM',
     detail1:  '',
     detail2:  '',
