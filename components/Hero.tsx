@@ -11,7 +11,7 @@ const thumbnails = [
 const identities = [
   {
     id: 1,
-    photo:    '/images/phtos-menu-livre2.jpg',
+    photo:    '/images/RegisGranvillevia%20%20KiraVigrivach.JPG',
     photoCredit: 'Crédit photo : Samuel Cammarano',
     photoAlt: 'Artiste Plasticien Visual artist',
     name:     'Artiste visuel et plasticien',
