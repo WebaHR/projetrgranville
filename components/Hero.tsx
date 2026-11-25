@@ -1,6 +1,7 @@
 import styles from './Hero.module.css'
 import HeroAccordion from './HeroAccordion'
 import IdBio from './IdBio'
+import ContactModal from './ContactModal'
 
 /* ── Miniatures éparsées ── */
 const thumbnails = [
@@ -105,9 +106,7 @@ export default function Hero() {
 
       <span className={styles.ghost} aria-hidden="true"></span>
 
-      <a href="mailto:rg.granville@gmail.com" className={styles.contactAbove}>
-        Contact
-      </a>
+      <ContactModal triggerClassName={styles.contactAbove} />
 
       {thumbnails.map((thumb) => (
         // eslint-disable-next-line @next/next/no-img-element
