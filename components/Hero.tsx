@@ -49,7 +49,7 @@ It is a poetic exploration in which matter, shaped by instinct, becomes the mirr
     role:     `ZATRAP.FR`,
     detail1:  '',
     detail2:  '',
-    href:     '#',
+    href:     'https://zatrap.fr/',
     bio: (
       <>
         <strong>Le Voyage est un Art - L'Art est un Voyage</strong>
