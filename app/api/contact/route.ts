@@ -99,7 +99,7 @@ export async function POST(request: Request) {
   try {
     const resend = new Resend(apiKey)
     const { error } = await resend.emails.send({
-      from: 'Contact Régis Granville <onboarding@resend.dev>',
+      from: 'Contact Régis Granville <contact@granville-art.com>',
       to: CONTACT_EMAILS,
       replyTo: email,
       subject: `Nouveau contact : ${firstName} ${lastName}`,
