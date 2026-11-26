@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
       <body>
         {children}
-        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+        <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
       </body>
     </html>
   )

@@ -7,18 +7,17 @@ type Status = 'idle' | 'sending' | 'sent' | 'error'
 
 declare global {
   interface Window {
-    turnstile?: {
+    grecaptcha?: {
       render: (
         container: HTMLElement,
         options: {
           sitekey: string
           callback: (token: string) => void
-          'error-callback'?: () => void
           'expired-callback'?: () => void
+          'error-callback'?: () => void
         }
-      ) => string
-      reset: (widgetId?: string) => void
-      remove: (widgetId?: string) => void
+      ) => number
+      reset: (widgetId?: number) => void
     }
   }
 }
@@ -29,8 +28,8 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
   const [errorText, setErrorText] = useState('')
   const [captchaToken, setCaptchaToken] = useState('')
   const firstInputRef = useRef<HTMLInputElement>(null)
-  const turnstileContainerRef = useRef<HTMLDivElement>(null)
-  const widgetIdRef = useRef<string | undefined>(undefined)
+  const recaptchaContainerRef = useRef<HTMLDivElement>(null)
+  const widgetIdRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     if (!open) return
@@ -43,31 +42,31 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [open])
 
-  // Rend le widget Turnstile à l'ouverture — le script est chargé une
+  // Rend le widget reCAPTCHA à l'ouverture — le script est chargé une
   // fois globalement (layout.tsx) mais le conteneur n'existe que
   // pendant que la pop-up est montée, donc on (re)rend à chaque fois.
   useEffect(() => {
     if (!open) return
-    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
     if (!siteKey) return
 
     let cancelled = false
 
     const renderWidget = () => {
-      if (cancelled || !window.turnstile || !turnstileContainerRef.current) return
-      widgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+      if (cancelled || !window.grecaptcha || !recaptchaContainerRef.current) return
+      widgetIdRef.current = window.grecaptcha.render(recaptchaContainerRef.current, {
         sitekey: siteKey,
         callback: (token) => setCaptchaToken(token),
-        'error-callback': () => setCaptchaToken(''),
         'expired-callback': () => setCaptchaToken(''),
+        'error-callback': () => setCaptchaToken(''),
       })
     }
 
-    if (window.turnstile) {
+    if (window.grecaptcha) {
       renderWidget()
     } else {
       const interval = setInterval(() => {
-        if (window.turnstile) {
+        if (window.grecaptcha) {
           clearInterval(interval)
           renderWidget()
         }
@@ -80,10 +79,7 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
 
     return () => {
       cancelled = true
-      if (widgetIdRef.current && window.turnstile) {
-        window.turnstile.remove(widgetIdRef.current)
-        widgetIdRef.current = undefined
-      }
+      widgetIdRef.current = undefined
       setCaptchaToken('')
     }
   }, [open])
@@ -134,8 +130,8 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
       )
       setStatus('error')
     } finally {
-      if (widgetIdRef.current && window.turnstile) {
-        window.turnstile.reset(widgetIdRef.current)
+      if (widgetIdRef.current !== undefined && window.grecaptcha) {
+        window.grecaptcha.reset(widgetIdRef.current)
       }
       setCaptchaToken('')
     }
@@ -223,7 +219,7 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
                   <textarea name="message" rows={4} />
                 </label>
 
-                <div ref={turnstileContainerRef} className={styles.captcha} />
+                <div ref={recaptchaContainerRef} className={styles.captcha} />
 
                 {status === 'error' && <p className={styles.errorMsg}>{errorText}</p>}
 
