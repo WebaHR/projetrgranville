@@ -31,6 +31,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* reCAPTCHA v3 : badge flottant masqué (la mention obligatoire est
+   affichée dans la pop-up de contact à la place, cf. ContactModal) */
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -8,16 +8,8 @@ type Status = 'idle' | 'sending' | 'sent' | 'error'
 declare global {
   interface Window {
     grecaptcha?: {
-      render: (
-        container: HTMLElement,
-        options: {
-          sitekey: string
-          callback: (token: string) => void
-          'expired-callback'?: () => void
-          'error-callback'?: () => void
-        }
-      ) => number
-      reset: (widgetId?: number) => void
+      ready: (cb: () => void) => void
+      execute: (siteKey: string, options: { action: string }) => Promise<string>
     }
   }
 }
@@ -26,10 +18,7 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
   const [open, setOpen] = useState(false)
   const [status, setStatus] = useState<Status>('idle')
   const [errorText, setErrorText] = useState('')
-  const [captchaToken, setCaptchaToken] = useState('')
   const firstInputRef = useRef<HTMLInputElement>(null)
-  const recaptchaContainerRef = useRef<HTMLDivElement>(null)
-  const widgetIdRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     if (!open) return
@@ -42,47 +31,19 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [open])
 
-  // Rend le widget reCAPTCHA à l'ouverture — le script est chargé une
-  // fois globalement (layout.tsx) mais le conteneur n'existe que
-  // pendant que la pop-up est montée, donc on (re)rend à chaque fois.
-  useEffect(() => {
-    if (!open) return
+  async function getCaptchaToken(): Promise<string | null> {
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
-    if (!siteKey) return
+    if (!siteKey || !window.grecaptcha) return null
 
-    let cancelled = false
-
-    const renderWidget = () => {
-      if (cancelled || !window.grecaptcha || !recaptchaContainerRef.current) return
-      widgetIdRef.current = window.grecaptcha.render(recaptchaContainerRef.current, {
-        sitekey: siteKey,
-        callback: (token) => setCaptchaToken(token),
-        'expired-callback': () => setCaptchaToken(''),
-        'error-callback': () => setCaptchaToken(''),
+    return new Promise((resolve) => {
+      window.grecaptcha!.ready(() => {
+        window.grecaptcha!
+          .execute(siteKey, { action: 'contact' })
+          .then(resolve)
+          .catch(() => resolve(null))
       })
-    }
-
-    if (window.grecaptcha) {
-      renderWidget()
-    } else {
-      const interval = setInterval(() => {
-        if (window.grecaptcha) {
-          clearInterval(interval)
-          renderWidget()
-        }
-      }, 100)
-      return () => {
-        cancelled = true
-        clearInterval(interval)
-      }
-    }
-
-    return () => {
-      cancelled = true
-      widgetIdRef.current = undefined
-      setCaptchaToken('')
-    }
-  }, [open])
+    })
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -91,13 +52,15 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
 
     if (data.get('company')) return // honeypot
 
+    setStatus('sending')
+
+    const captchaToken = await getCaptchaToken()
     if (!captchaToken) {
-      setErrorText('Merci de valider le captcha.')
+      setErrorText('Validation anti-spam indisponible, réessayez.')
       setStatus('error')
       return
     }
 
-    setStatus('sending')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -129,11 +92,6 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
           : 'Une erreur est survenue. Réessayez ou écrivez à rg.granville@gmail.com.'
       )
       setStatus('error')
-    } finally {
-      if (widgetIdRef.current !== undefined && window.grecaptcha) {
-        window.grecaptcha.reset(widgetIdRef.current)
-      }
-      setCaptchaToken('')
     }
   }
 
@@ -219,13 +177,24 @@ export default function ContactModal({ triggerClassName }: { triggerClassName: s
                   <textarea name="message" rows={4} />
                 </label>
 
-                <div ref={recaptchaContainerRef} className={styles.captcha} />
-
                 {status === 'error' && <p className={styles.errorMsg}>{errorText}</p>}
 
                 <button type="submit" className={styles.submit} disabled={status === 'sending'}>
                   {status === 'sending' ? 'Envoi…' : 'Envoyer'}
                 </button>
+
+                {/* Mention obligatoire : le badge visuel de Google est masqué (globals.css) */}
+                <p className={styles.recaptchaNotice}>
+                  Ce site est protégé par reCAPTCHA. La{' '}
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                    politique de confidentialité
+                  </a>{' '}
+                  et les{' '}
+                  <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">
+                    conditions d'utilisation
+                  </a>{' '}
+                  de Google s'appliquent.
+                </p>
               </form>
             )}
           </div>

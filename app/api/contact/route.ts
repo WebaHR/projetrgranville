@@ -3,6 +3,10 @@ import { Resend } from 'resend'
 
 const CONTACT_EMAIL = 'rg.granville@gmail.com'
 
+// Score minimal accepté (0.0 = bot probable, 1.0 = humain probable) —
+// 0.5 est le seuil communément recommandé par Google pour reCAPTCHA v3.
+const RECAPTCHA_MIN_SCORE = 0.5
+
 async function verifyRecaptcha(token: string, ip: string | null): Promise<boolean> {
   const secret = process.env.RECAPTCHA_SECRET_KEY
   if (!secret) return false
@@ -18,7 +22,12 @@ async function verifyRecaptcha(token: string, ip: string | null): Promise<boolea
       }),
     })
     const data = await res.json()
-    return data.success === true
+    return (
+      data.success === true &&
+      data.action === 'contact' &&
+      typeof data.score === 'number' &&
+      data.score >= RECAPTCHA_MIN_SCORE
+    )
   } catch {
     return false
   }
