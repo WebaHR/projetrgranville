@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const CONTACT_EMAIL = 'rg.granville@gmail.com'
+const CONTACT_EMAILS = ['rg.granville@gmail.com', 'saslandeco@gmail.com']
 
 // Score minimal accepté (0.0 = bot probable, 1.0 = humain probable) —
 // 0.5 est le seuil communément recommandé par Google pour reCAPTCHA v3.
@@ -100,7 +100,7 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey)
     const { error } = await resend.emails.send({
       from: 'Contact Régis Granville <onboarding@resend.dev>',
-      to: CONTACT_EMAIL,
+      to: CONTACT_EMAILS,
       replyTo: email,
       subject: `Nouveau contact : ${firstName} ${lastName}`,
       text: lines.join('\n'),
